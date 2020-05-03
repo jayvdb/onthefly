@@ -2,7 +2,7 @@ import os
 import imp
 import json
 
-SUPPORTED_TYPES = [int, float, str, unicode, bool, dict, list]
+SUPPORTED_TYPES = [int, float, str,  bool, dict, list]
 
 
 def load_class(path):
@@ -34,10 +34,9 @@ def load_class(path):
 
 
 def convert(value, _type):
-    # convert builtin types: int,str,unicode,float,bool,dict,list
+    # convert builtin types: int,str,float,bool,dict,list
     types = {
         str: lambda x: x,
-        unicode: lambda x: str(x),
         bool: lambda x: x == 'True',
         list: lambda x: json.loads(x),
         dict: lambda x: json.loads(x),
