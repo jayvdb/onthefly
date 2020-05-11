@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.contrib import messages
@@ -59,7 +58,3 @@ class AppSettingsView(TemplateView):
                 settings.backend.set_value(name, converted_value)
         request.method = 'GET'
         return self.get(request, *args, **kwargs)
-
-
-admin.site.register_view('onthefly-settings/', 'Onthefly Settings',
-                         view=AppSettingsView.as_view())
